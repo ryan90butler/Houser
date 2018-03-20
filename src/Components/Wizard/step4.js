@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './wizard.css';
-import Header from '../Header/header';
 import{Link} from 'react-router-dom';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-import {updatePropertyName, updatePropertyDescription,updateAddress, updateCity, updateState, updateImgUrl, updateLoanAmount, updateMonthlyMortgage, updateDesiredRent} from '../../Redux/Actions/actions'
-
+import {updateLoanAmount, updateMonthlyMortgage} from '../../Redux/Actions/actions'
 
 class StepFour extends Component {
   constructor(){
@@ -15,9 +13,9 @@ class StepFour extends Component {
 
   handleChange(e, action){
     switch(action){
-        case 'name': this.props.dispatch(updatePropertyName(e.target.value));
+        case 'loan': this.props.dispatch(updateLoanAmount(e.target.value));
         break;
-        case 'description' :  this.props.dispatch(updatePropertyDescription(e.target.value));
+        case 'mortgage' :  this.props.dispatch(updateMonthlyMortgage(e.target.value));
         break;
     }
 }
@@ -25,14 +23,12 @@ class StepFour extends Component {
   render(){
       return (
          <div className='StepFour' >
-           <div>
-          <p>Add new Listing</p>
-           <Link to='/dashboard'>Cancel</Link>
-                <p>Property Name:</p>
-                <input type="text" value={this.props.propertyName} onChange={e => this.handleChange(e, 'name')} className="nameHolder" />
-                <p>Property Description:</p>
-                <input type="text" value={this.props.propertyDescription} onChange={e => this.handleChange(e, 'description')} className="nameHolder" />
-            </div>
+            <p>Loan Amount</p>
+            <input type="text" value={this.props.loanAmount} onChange={e => this.handleChange(e, 'loan')} className="nameHolder" />
+            <p>Monthly Mortgage</p>
+            <input type="text" value={this.props.monthlyMortgage} onChange={e => this.handleChange(e, 'mortgage')} className="nameHolder" />
+            <Link to='/wizard/5'>Next</Link>
+            <Link to='/wizard/3'>Back</Link>
          </div>
       )
   }

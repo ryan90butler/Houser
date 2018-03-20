@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './wizard.css';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-import {updateImgUrl} from '../../Redux/Actions/actions'
+import{Link} from 'react-router-dom';
+import {updateImgUrl} from '../../Redux/Actions/actions';
 
 
 class StepThree extends Component {
@@ -11,17 +12,18 @@ class StepThree extends Component {
     this.handleChange = this.handleChange.bind(this);
 }
 
-  handleChange(e, action){
+  handleChange(e){
  this.props.dispatch(updateImgUrl(e.target.value));
     }
 
   render(){
       return (
          <div className='StepThree' >
-                <p>Property Name:</p>
-                <input type="text" value={this.props.propertyName} onChange={e => this.handleChange(e, 'name')} className="nameHolder" />
-                <p>Property Description:</p>
-                <input type="text" value={this.props.propertyDescription} onChange={e => this.handleChange(e, 'description')} className="nameHolder" />
+         <img src={this.props.imgUrl} alt="Image Preview"/>
+          <p>Image URL</p>
+          <input type="text" value={this.props.imgUrl} onChange={e => this.handleChange(e)} className="nameHolder" />
+          <Link to='/wizard/4'>Next</Link>
+          <Link to='/wizard/2'>Back</Link>
          </div>
       )
   }

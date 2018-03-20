@@ -9,7 +9,8 @@ import Step3 from './step3'
 import Step4 from './step4'
 import Step5 from './step5'
 import { bindActionCreators} from 'redux';
-import {updatePropertyName, updatePropertyDescription,updateAddress, updateCity, updateState, updateImgUrl, updateLoanAmount, updateMonthlyMortgage, updateDesiredRent} from '../../Redux/Actions/actions'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import step1 from './step1';
 
 class Wizard extends Component {
     // constructor(){
@@ -17,31 +18,43 @@ class Wizard extends Component {
     //     this.handleChange = this.handleChange.bind(this);
     // }
 
-// handleChange(e, action){
-//     switch(action){
-//         case 'name': this.props.dispatch(updatePropertyName(e.target.value));
-//         break;
-//         case 'description' :  this.props.dispatch(updatePropertyDescription(e.target.value));
-//         break;
-//     }
-// }
+renderChange(id){
+    switch(id){
+        case '2': this.props.match.id
+        break;
+        case '3': this.props.match.id
+        break;
+        case '4': this.props.match.id
+        break;
+        case '5' : this.props.match.id
+        break;
+    }
+}
     render(){
         console.log(this.props)
         return (
            <div className='Wizard' >
              <Header/>
-           <div>
+             <div className='wizard-container'>
+            <div className="left-blank-space">
+            </div>
+            <div className="middle-render-space">
           <p>Add new Listing</p>
            <Link to='/dashboard'>Cancel</Link>
-           <Step1 />
-         <Step2 />
-           {/* <Step3 />
-           <Step4 />
-           <Step5 /> */}
-                <p>Property Name:</p>
-                <input type="text" value={this.props.propertyName} onChange={e => this.handleChange(e, 'name')} className="nameHolder" />
-                <p>Property Description:</p>
-                <input type="text" value={this.props.propertyDescription} onChange={e => this.handleChange(e, 'description')} className="nameHolder" />
+
+           <div>Step {this.props.match.params.id}</div>
+
+           <Switch>
+            <Route path={`/wizard/1`} component={Step1}/>
+            <Route path={`/wizard/2`} component={Step2}/>
+            <Route path={`/wizard/3`} component={Step3}/>
+            <Route path={`/wizard/4`} component={Step4}/>
+            <Route path={`/wizard/5`} component={Step5}/>
+          </Switch>
+
+            </div>
+            <div className="right-blank-space">
+            </div>
             </div>
            </div>
         )

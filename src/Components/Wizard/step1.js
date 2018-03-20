@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './wizard.css';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
+import{Link} from 'react-router-dom';
 import {updatePropertyName, updatePropertyDescription} from '../../Redux/Actions/actions'
 
 
@@ -27,6 +28,7 @@ class StepOne extends Component {
               <input type="text" value={this.props.propertyName} onChange={e => this.handleChange(e, 'name')} className="nameHolder" />
               <p>Property Description:</p>
               <input type="text" value={this.props.propertyDescription} onChange={e => this.handleChange(e, 'description')} className="nameHolder" />
+              <Link to='/wizard/2'>Next</Link>
          </div>
       )
   }

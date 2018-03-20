@@ -8,11 +8,11 @@ class Header extends Component {
            <div className='header' >
            <div className='header-title'>
            <img className='header-logo' src={headerLogo} />
-            <p>Houser</p>
-            <p>Dashboard</p>
+            <p className='header-text'>Houser</p>
+            <p className='header-text'>Dashboard</p>
             </div>
             <div className='logout-button'>
-            <p>Logout</p>
+            <p classname='header-logout'>Logout</p>
             </div>
            </div>
         )

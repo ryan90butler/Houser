@@ -1,0 +1,20 @@
+.middle-render-space {
+  background: white;
+  height: 90vh;
+  width: 50%;
+}
+.left-blank-space{
+  background: #afd4c0;
+  width: 25%;
+}
+
+.right-blank-space{
+  background: #afd4c0;
+  width: 25%;
+}
+
+.wizard-container {
+  height: 90vh;
+  display:  flex;
+  width: 100%;
+}

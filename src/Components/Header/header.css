@@ -1,15 +1,21 @@
 .header {
   display:  flex;
   background: #519872;
+  height: 75px;
 }
 .header-title {
   display:  flex;
   align-items: center;
   justify-content:  center;
-  width: 60%;
+  width: 65%;
   color: white;
 }
 
 .logout-button {
   color:  white;
+}
+
+p.header-text {
+  font-size: 30px;
+  margin-left: 7px;
 }
