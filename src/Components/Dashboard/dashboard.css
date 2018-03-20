@@ -1,0 +1,11 @@
+.dashboard-main-content {
+  display: flex;
+  height:  95vh;
+  width: 50%;
+  margin:  auto;
+  background:#f6f0f0;
+}
+
+.Dashboard {
+  background: #afd4c0;
+}

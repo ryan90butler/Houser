@@ -1,0 +1,44 @@
+.login-page {
+  display:  flex;
+  background: white;
+  height: 100vh;
+}
+
+.blank-left-space {
+  width: 25%;
+  height:  100vh;
+  background:  #afd4c0;
+}
+
+.blank-right-space {
+  width: 25%;
+  height:  100vh;
+  background:  #afd4c0;
+}
+
+.middle-section {
+  width: 50%;
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-form {
+  width: 100%;
+  justify-content:center;
+  display:  flex;
+}
+
+input.login-input {
+  width: 450px;
+}
+
+img.auth-logo {
+  margin-bottom: 20px;
+}
+
+.login-buttons {
+  margin-top: 10px;
+  display:  flex;
+  justify-content: space-evenly;
+}
