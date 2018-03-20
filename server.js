@@ -12,11 +12,14 @@ app.use(bodyParser.json());
 app.use(cors());
 
 massive(process.env.CONNECTION_STRING)
-.then(db => {
-  console.log('connected')
-  app.set('db', db);
-
-});
+    .then((db)=>{
+        console.log('the server is connected');
+        app.set('db', db);
+    })
+    .catch(err => {
+        console.warn('Failed to connect:');
+        console.error(err);
+    });
 
 app.use(session({
   name: 'Houser',
@@ -28,6 +31,11 @@ app.use(session({
   rolling: true,
   resave: false,
 }));
+
+app.get(`/api/logout`, (req, res) =>{
+    req.session.destroy();
+    res.send({ success: true, message: 'Logged out successfully' });
+})
 
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -63,6 +71,21 @@ app.post('/api/register', (req, res) => {
 
       );
 });
+
+app.post('/api/addProperty', (req, res) => {
+
+    const { propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent } = req.body;
+
+    req.db.insertProperty({  propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent })
+        .then(user => {
+          req.session.user = user.user_id
+            res.send({ success: true, message: 'logged in successfully' });
+        })
+        .catch(err =>{
+          console.log(err)
+        }
+        );
+  });
 
 function checkDb() {
   return (req, res, next) => {

@@ -3,14 +3,14 @@ import './wizard.css';
 import{Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../Header/header';
-import Step1 from './step1'
-import Step2 from './step2'
-import Step3 from './step3'
-import Step4 from './step4'
-import Step5 from './step5'
+import Step1 from './step1';
+import Step2 from './step2';
+import Step3 from './step3';
+import Step4 from './step4';
+import Step5 from './step5';
+import dashboard from '../Dashboard/dashboard';
 import { bindActionCreators} from 'redux';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import step1 from './step1';
 
 class Wizard extends Component {
     // constructor(){
@@ -18,20 +18,20 @@ class Wizard extends Component {
     //     this.handleChange = this.handleChange.bind(this);
     // }
 
-renderChange(id){
-    switch(id){
-        case '2': this.props.match.id
-        break;
-        case '3': this.props.match.id
-        break;
-        case '4': this.props.match.id
-        break;
-        case '5' : this.props.match.id
-        break;
-    }
-}
+// renderChange(id){
+//     switch(id){
+//         case '2': this.props.match.id
+//         break;
+//         case '3': this.props.match.id
+//         break;
+//         case '4': this.props.match.id
+//         break;
+//         case '5' : this.props.match.id
+//         break;
+//     }
+// }
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         return (
            <div className='Wizard' >
              <Header/>
@@ -39,10 +39,12 @@ renderChange(id){
             <div className="left-blank-space">
             </div>
             <div className="middle-render-space">
-          <p>Add new Listing</p>
-           <Link to='/dashboard'>Cancel</Link>
+            <div className="render-header">
+          <p className="add-new-listing">Add new listing</p>
+           <Link className="cancel-button" to='/dashboard'>Cancel</Link>
+           </div>
 
-           <div>Step {this.props.match.params.id}</div>
+           <div className="step-counter">Step {this.props.match.params.id}</div>
 
            <Switch>
             <Route path={`/wizard/1`} component={Step1}/>

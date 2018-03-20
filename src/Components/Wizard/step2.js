@@ -28,15 +28,24 @@ class StepTwo extends Component {
   render(){
       return (
          <div className='StepTwo' >
+         <div className="address-container">
           <p>Address</p>
-          <input type="text" value={this.props.address} onChange={e => this.handleChange(e, 'address')} className="nameHolder" />
+          <input type="text" value={this.props.address} onChange={e => this.handleChange(e, 'address')} className="addressHolder" />
+          </div>
+          <div className="city-state-container">
           <p>City</p>
-          <input type="text" value={this.props.city} onChange={e => this.handleChange(e, 'city')} className="nameHolder" />    <p>Zip</p>
-          <input type="text" value={this.props.zip} onChange={e => this.handleChange(e, 'zip')} className="nameHolder" />
+          <input type="text" value={this.props.city} onChange={e => this.handleChange(e, 'city')} className="cityHolder" />
           <p>State</p>
-          <input type="text" value={this.props.state} onChange={e => this.handleChange(e, 'state')} className="nameHolder" />
-          <Link to='/wizard/3'>Next</Link>
-          <Link to='/wizard/1'>Back</Link>
+          <input type="text" value={this.props.state} onChange={e => this.handleChange(e, 'state')} className="stateHolder" />
+          </div>
+          <div className="zip-container">
+          <p>Zip</p>
+          <input type="text" value={this.props.zip} onChange={e => this.handleChange(e, 'zip')} className="zipHolder" />
+          </div>
+          <div className="button-container">
+          <Link className="next-step-button"to='/wizard/1'>Previous Step</Link>
+          <Link className="next-step-button" to='/wizard/3'>Next Step</Link>
+          </div>
          </div>
       )
   }

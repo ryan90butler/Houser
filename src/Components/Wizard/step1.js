@@ -18,17 +18,27 @@ class StepOne extends Component {
         break;
         case 'description' : this.props.dispatch(updatePropertyDescription(e.target.value));
         break;
+        default:
+        break;
     }
 }
 
   render(){
       return (
+
          <div className='StepOne' >
-              <p>Property Name:</p>
-              <input type="text" value={this.props.propertyName} onChange={e => this.handleChange(e, 'name')} className="nameHolder" />
-              <p>Property Description:</p>
-              <input type="text" value={this.props.propertyDescription} onChange={e => this.handleChange(e, 'description')} className="nameHolder" />
-              <Link to='/wizard/2'>Next</Link>
+                 <div className="progress-bar">
+        <img src='.../Images/step_active.png' alt="active" />
+        <img src='.../Images/step_inactive.png' alt="active" />
+        <img src='.../Images/step_inactive.png' alt="active" />
+        <img src='.../Images/step_inactive.png' alt="active" />
+        <img src='.../Images/step_inactive.png' alt="active" />
+        </div>
+              <p>Property Name</p>
+              <input type="text" value={this.props.propertyName} onChange={e => this.handleChange(e, 'name')} className="name-holder" />
+              <p>Property Description</p>
+              <input type="text" value={this.props.propertyDescription} onChange={e => this.handleChange(e, 'description')} className="description-holder" />
+              <Link className="next-step-button" to='/wizard/2'>Next Step</Link>
          </div>
       )
   }

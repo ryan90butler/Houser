@@ -19,11 +19,13 @@ class StepThree extends Component {
   render(){
       return (
          <div className='StepThree' >
-         <img src={this.props.imgUrl} alt="Image Preview"/>
+         <img src={this.props.imgUrl} alt="Property Preview"/>
           <p>Image URL</p>
           <input type="text" value={this.props.imgUrl} onChange={e => this.handleChange(e)} className="nameHolder" />
-          <Link to='/wizard/4'>Next</Link>
-          <Link to='/wizard/2'>Back</Link>
+          <div className="button-container">
+          <Link className="next-step-button"to='/wizard/2'>Previous Step</Link>
+          <Link className="next-step-button" to='/wizard/4'>Next Step</Link>
+          </div>
          </div>
       )
   }

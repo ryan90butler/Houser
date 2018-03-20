@@ -27,8 +27,10 @@ class StepFour extends Component {
             <input type="text" value={this.props.loanAmount} onChange={e => this.handleChange(e, 'loan')} className="nameHolder" />
             <p>Monthly Mortgage</p>
             <input type="text" value={this.props.monthlyMortgage} onChange={e => this.handleChange(e, 'mortgage')} className="nameHolder" />
-            <Link to='/wizard/5'>Next</Link>
-            <Link to='/wizard/3'>Back</Link>
+            <div className="button-container">
+          <Link className="next-step-button"to='/wizard/3'>Previous Step</Link>
+          <Link className="next-step-button" to='/wizard/5'>Next Step</Link>
+          </div>
          </div>
       )
   }

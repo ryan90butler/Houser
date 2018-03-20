@@ -1,20 +1,150 @@
 .middle-render-space {
-  background: white;
+  background: #e3f3ea;
   height: 90vh;
-  width: 50%;
+  width: 70%;
 }
 .left-blank-space{
   background: #afd4c0;
-  width: 25%;
+  width: 15%;
 }
 
 .right-blank-space{
   background: #afd4c0;
-  width: 25%;
+  width: 15%;
 }
 
 .wizard-container {
   height: 90vh;
   display:  flex;
   width: 100%;
+}
+.step-counter {
+  display:  flex;
+  justify-content:  center;
+}
+.render-header {
+  display:  flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input.name-holder {
+  width: 70%;
+}
+
+.StepOne {
+  display:  flex;
+  flex-direction: column;
+  margin-left:  auto;
+  margin-right:  auto;
+  width: 100%;
+  justify-content:  center;
+  align-content:  center;
+  align-items:  center;
+}
+.StepTwo {
+  display:  flex;
+  flex-direction: column;
+  margin-left:  auto;
+  margin-right:  auto;
+  width: 100%;
+  justify-content:  center;
+  align-content:  center;
+  align-items:  center;
+}
+.StepThree {
+  display:  flex;
+  flex-direction: column;
+  margin-left:  auto;
+  margin-right:  auto;
+  width: 100%;
+  justify-content:  center;
+  align-content:  center;
+  align-items:  center;
+}
+
+.StepFour {
+  display:  flex;
+  flex-direction: column;
+  margin-left:  auto;
+  margin-right:  auto;
+  width: 100%;
+  justify-content:  center;
+  align-content:  center;
+  align-items:  center;
+}
+.StepFive {
+  display:  flex;
+  flex-direction: column;
+  margin-left:  auto;
+  margin-right:  auto;
+  width: 100%;
+  justify-content:  center;
+  align-content:  center;
+  align-items:  center;
+}
+input.nameHolder {
+  width: 40%;
+}
+
+p.add-new-listing {
+  font-size: 25px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+a.cancel-button {
+  text-decoration:  none;
+  margin-right: 10px;
+  color: black;
+  font-size: 16px;
+  cursor:  pointer;
+  background: #fec2c2;
+  padding: 5px;
+  font-weight: 600;
+}
+.step-counter {
+  font-size: 20px;
+}
+
+a.next-step-button {
+  background: #3b5249;
+  text-decoration: none;
+  color: white;
+  padding: 10px 30px;
+  margin-top: 30px;
+  border-radius: 4px;
+}
+
+input.description-holder {
+  height: 100px;
+  width: 70%;
+}
+.button-container {
+  margin-top: 10px;
+  display:  flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+input.addressHolder {
+  width: 70%;
+}
+input.cityHolder {
+  width: 70%;
+}
+input.stateHolder {
+  width: 70%;
+}
+input.zipHolder {
+  width: 70%;
+}
+
+.address-container {
+  width: 70%;
+  align-items:  center;
+  display:  flex;
+  flex-direction: column;
 }

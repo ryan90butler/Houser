@@ -1,11 +1,51 @@
 .dashboard-main-content {
   display: flex;
   height:  95vh;
-  width: 50%;
+  width: 60%;
   margin:  auto;
-  background:#f6f0f0;
+  background:#ecf7f1;
+  flex-direction: column;
+  padding: 20px;
 }
 
 .Dashboard {
   background: #afd4c0;
+}
+
+a.add-property-link {
+  display:  flex;
+  background: #8aea92;
+  justify-content: center;
+  color: black;
+  font-weight:  bold;
+  width: 35%;
+  margin-left:  auto;
+  margin-right:  auto;
+  font-size: 20px;
+  text-decoration:  none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.filter-box {
+  display:  flex;
+  justify-content:  center;
+  align-items:  center;
+  flex-direction:  row;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #000;
+  box-sizing: border-box;
+  padding-bottom: 30px;
+}
+
+input.input-box {
+  width: 40px;
+  height: 20px;
+  border: 1px #519872 solid;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
