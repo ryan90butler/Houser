@@ -8,7 +8,7 @@ INSERT INTO property_data (
     img_url,
     loan_amount,
     monthly_mortgage,
-    desired_rent,
+    desired_rent
 )
 VALUES (
     ${propertyName},
@@ -20,5 +20,5 @@ VALUES (
     ${imgUrl},
     ${loanAmount},
     ${monthlyMortgage},
-    ${desiredRent},
+    ${desiredRent}
 );

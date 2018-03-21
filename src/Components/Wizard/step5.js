@@ -12,6 +12,7 @@ class StepFive extends Component {
     super()
     this.handleChange = this.handleChange.bind(this);
     this.recommendedRent = this.recommendedRent.bind(this);
+    this.addProperty = this.addProperty.bind(this)
 }
 
 handleChange(e){
@@ -36,9 +37,13 @@ addProperty(e){
    monthlyMortgage: this.props.monthlyMortgage,
    desiredRent: this.props.desiredRent
   })
-    .then((response) => {
-     console.log(response)
-    })
+    .then((response)=>{
+      if(response.data.success){
+          this.props.history.push('/dashboard');
+      }else{
+          alert("Yo your password or maybe your email (all though I doubt it) is incorrect")
+      }
+  })
 }
 
   render(){

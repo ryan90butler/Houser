@@ -36,10 +36,24 @@ app.get(`/api/logout`, (req, res) =>{
     req.session.destroy();
     res.send({ success: true, message: 'Logged out successfully' });
 })
+app.use(checkDb());
+
+app.get(`/api/properties`, (req, res) => {
+    req.db.findProperties([req.session.user])
+        .then(properties => {
+            console.log(`properties are on the way`);
+            res.send(properties)
+        })
+})
+
+app.get(`/api/filter/:desired_rent`, (req, res)=>{
+    req.db.filterProperty(req)
+        .then(properties => {
+            res.status(200).send(properties)
+        })
+})
 
 // app.use(express.static(path.join(__dirname, 'client/build')));
-
-app.use(checkDb());
 
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
@@ -76,16 +90,29 @@ app.post('/api/addProperty', (req, res) => {
 
     const { propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent } = req.body;
 
-    req.db.insertProperty({  propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent })
+    req.db.insertProperty({  propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent, user_id:req.session.user })
         .then(user => {
-          req.session.user = user.user_id
-            res.send({ success: true, message: 'logged in successfully' });
+            res.send({ success: true, message: 'property added successfully' });
         })
         .catch(err =>{
           console.log(err)
-        }
-        );
+        });
   });
+
+  app.delete(`/api/remove/:id`, (req, res)=>{
+    req.db.deleteProperty({ property_id: req.params.id})
+        .then(newProperties =>{
+            console.log('successfully removed')
+            return req.db.findProperties(req)
+        })
+        .then(properties => {
+            console.log(`properties are on the way`);
+            res.send(properties)
+        })
+        .catch(err =>{
+            console.log(err)
+          });
+  })
 
 function checkDb() {
   return (req, res, next) => {

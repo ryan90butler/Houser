@@ -27,13 +27,13 @@ class StepOne extends Component {
       return (
 
          <div className='StepOne' >
-                 <div className="progress-bar">
+                 {/* <div className="progress-bar">
         <img src='.../Images/step_active.png' alt="active" />
         <img src='.../Images/step_inactive.png' alt="active" />
         <img src='.../Images/step_inactive.png' alt="active" />
         <img src='.../Images/step_inactive.png' alt="active" />
         <img src='.../Images/step_inactive.png' alt="active" />
-        </div>
+        </div> */}
               <p>Property Name</p>
               <input type="text" value={this.props.propertyName} onChange={e => this.handleChange(e, 'name')} className="name-holder" />
               <p>Property Description</p>

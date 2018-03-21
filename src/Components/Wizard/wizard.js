@@ -8,30 +8,10 @@ import Step2 from './step2';
 import Step3 from './step3';
 import Step4 from './step4';
 import Step5 from './step5';
-import dashboard from '../Dashboard/dashboard';
-import { bindActionCreators} from 'redux';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Switch, Route} from 'react-router-dom';
 
 class Wizard extends Component {
-    // constructor(){
-    //     super()
-    //     this.handleChange = this.handleChange.bind(this);
-    // }
-
-// renderChange(id){
-//     switch(id){
-//         case '2': this.props.match.id
-//         break;
-//         case '3': this.props.match.id
-//         break;
-//         case '4': this.props.match.id
-//         break;
-//         case '5' : this.props.match.id
-//         break;
-//     }
-// }
     render(){
-        // console.log(this.props)
         return (
            <div className='Wizard' >
              <Header/>

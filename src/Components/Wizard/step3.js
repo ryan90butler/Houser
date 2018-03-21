@@ -21,7 +21,7 @@ class StepThree extends Component {
          <div className='StepThree' >
          <img src={this.props.imgUrl} alt="Property Preview"/>
           <p>Image URL</p>
-          <input type="text" value={this.props.imgUrl} onChange={e => this.handleChange(e)} className="nameHolder" />
+          <input type="text" value={this.props.imgUrl} onChange={e => this.handleChange(e)} className="imgHolder" />
           <div className="button-container">
           <Link className="next-step-button"to='/wizard/2'>Previous Step</Link>
           <Link className="next-step-button" to='/wizard/4'>Next Step</Link>

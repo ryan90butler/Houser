@@ -42,7 +42,7 @@ function state (state = '', action){
     }
     return state;
 }
-function zip (state = '', action){
+function zip (state = null, action){
     if(action.type === UPDATE_ZIP){
         return action.payload
     }
@@ -54,19 +54,19 @@ function imgUrl (state = '', action){
     }
     return state;
 }
-function loanAmount (state = '', action){
+function loanAmount (state = null, action){
     if(action.type === UPDATE_LOAN_AMOUNT){
         return action.payload
     }
     return state;
 }
-function monthlyMortgage (state = '', action){
+function monthlyMortgage (state = null, action){
     if(action.type === UPDATE_MONTHLY_MORTGAGE){
         return action.payload
     }
     return state;
 }
-function desiredRent (state = '', action){
+function desiredRent (state = null, action){
     if(action.type === UPDATE_DESIRED_RENT){
         return action.payload
     }
