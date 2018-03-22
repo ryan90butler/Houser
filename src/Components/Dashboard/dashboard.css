@@ -49,3 +49,9 @@ input.input-box {
   margin-right: 5px;
   margin-left: 5px;
 }
+
+.property-list {
+  display:  flex;
+  width: 100%;
+  justify-content: space-between;
+}

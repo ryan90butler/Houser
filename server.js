@@ -8,8 +8,8 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 massive(process.env.CONNECTION_STRING)
     .then((db)=>{
@@ -27,8 +27,7 @@ app.use(session({
   cookie: {
       expires:  5 * 24 * 60 * 60 *1000,
   },
-  saveUninitialized: false,
-  rolling: true,
+  saveUninitialized: true,
   resave: false,
 }));
 
@@ -61,7 +60,7 @@ app.post('/api/login', (req, res) => {
   req.db.user_table.findOne({ email, password })
       .then(user => {
           if (!user) {
-              return res.status(401).send({ success: false, message: 'it didnt work' });
+              return res.status(401).send({ success: false, message: 'it did not work' });
           }
           req.session.user = user.user_id
           res.send({ success: true, message: 'Logged in successfully' });
@@ -90,9 +89,10 @@ app.post('/api/addProperty', (req, res) => {
 
     const { propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent } = req.body;
 
-    req.db.insertProperty({  propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent, user_id:req.session.user })
+    req.db.insertProperty({  propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent, user_id:req.session.user
+    })
         .then(user => {
-            res.send({ success: true, message: 'property added successfully' });
+            res.send({ success: true, message: 'property added' });
         })
         .catch(err =>{
           console.log(err)
@@ -106,7 +106,6 @@ app.post('/api/addProperty', (req, res) => {
             return req.db.findProperties(req)
         })
         .then(properties => {
-            console.log(`properties are on the way`);
             res.send(properties)
         })
         .catch(err =>{

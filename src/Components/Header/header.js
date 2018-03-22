@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './header.css';
 import headerLogo from '../Images/header_logo.png';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom'
 
 class Header extends Component {
     constructor(){
@@ -28,10 +29,10 @@ class Header extends Component {
             <p className='header-text'>Dashboard</p>
             </div>
             <div className='logout-button'>
-            <button className='header-logout' onClick={this.sessionDestroy}>Logout</button>
+            <p className='header-logout' onClick={this.sessionDestroy}>Logout</p>
             </div>
            </div>
         )
     }
 }
-export default Header;
+export default withRouter(Header);

@@ -13,9 +13,17 @@
 
 .logout-button {
   color:  white;
+  display: flex;
+  height: 100%;
 }
 
 p.header-text {
   font-size: 30px;
   margin-left: 7px;
+}
+
+p.header-logout {
+  align-items:  center;
+  display:  flex;
+  cursor: pointer;
 }

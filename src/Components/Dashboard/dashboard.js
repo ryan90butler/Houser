@@ -17,13 +17,17 @@ class Dashboard extends Component {
         }
         this.removeProperty = this.removeProperty.bind(this);
         this.filterProperties = this.filterProperties.bind(this);
-        this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this);
+        this.resetResults = this.resetResults.bind(this);
     }
 
     removeProperty(property_id) {
         axios
           .delete('/api/remove/' + property_id)
-          .then((response) => { response
+          .then((r) => {
+              this.setState={
+                  properties: r.data
+              }
               });
           };
 
@@ -41,17 +45,24 @@ class Dashboard extends Component {
           [name]: value,
         });
       }
-      filerResults(){
+    filerResults(){
         const arr = this.state.properties.filter((p)=>{
             if(p.desired_rent > this.state.filterValue){
                 return p
             }
-
         })
         this.setState({
             filterProperties: arr
         })
-      }
+    }
+
+    resetResults(e){
+        e.preventDefault();
+        this.setState={
+            filterValue: 0
+        }
+    }
+
     componentDidMount(){
         axios.get('/api/properties')
         .then((response)=>{
@@ -87,19 +98,14 @@ class Dashboard extends Component {
            <div className='Dashboard' >
              <Header/>
              <div className="dashboard-main-content">
-                <Link className="add-property-link"to='/wizard/1'>Add new property</Link>
+                <Link className="add-property-link" to='/wizard/1'>Add new property</Link>
              <div className="filter-box">
                 <p>List properties with "desired rent" greater than: $</p>
-
-
-            <form onSubmit={this.filterProperties}>
+            <form>
             <input name='filterValue' type="text" onChange={this.handleChange} className="input-box" value={this.state.filterValue}/>
                 <button className="filter-button">Filter</button>
-                <button className="reset-button">Reset</button>
+                <button onClick={()=>this.resetResults} className="reset-button">Reset</button>
             </form>
-
-
-
              </div>
              <div className="home-listings">
              <p>Home Listings</p>
@@ -111,13 +117,4 @@ class Dashboard extends Component {
     }
 }
 
-// function mapStateToProps({products}){
-//     return {products};
-// }
-
-// function mapDispatchToProps(dispatch){
-// 	return bindActionCreators({getProperties}, dispatch);
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
 export default Dashboard;

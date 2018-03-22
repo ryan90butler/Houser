@@ -62,7 +62,7 @@ function loanAmount (state = null, action){
 }
 function monthlyMortgage (state = null, action){
     if(action.type === UPDATE_MONTHLY_MORTGAGE){
-        return action.payload
+        return action.payload;
     }
     return state;
 }
@@ -72,7 +72,13 @@ function desiredRent (state = null, action){
     }
     return state;
 }
+function recommendedRent (state = '', action){
+    if(action.type === UPDATE_MONTHLY_MORTGAGE){
+        return action.payload * 1.25;
+    }
+    return state;
+}
 
-const rootReducer = combineReducers({propertyName, propertyDescription,address,city,state,zip,imgUrl,loanAmount,monthlyMortgage,desiredRent});
+const rootReducer = combineReducers({propertyName, propertyDescription,address,city,state,zip,imgUrl,loanAmount,monthlyMortgage,desiredRent, recommendedRent});
 
 export default rootReducer;

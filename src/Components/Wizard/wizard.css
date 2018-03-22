@@ -148,3 +148,13 @@ input.zipHolder {
   display:  flex;
   flex-direction: column;
 }
+
+button.complete-button {
+  background: #8aea92;
+  text-decoration: none;
+  color: black;
+  padding: 10px 30px;
+  margin-top: 30px;
+  border-radius: 4px;
+  font-size: 18px;
+}

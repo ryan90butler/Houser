@@ -26,13 +26,13 @@ class Wizard extends Component {
 
            <div className="step-counter">Step {this.props.match.params.id}</div>
 
-           <Switch>
+           <div>
             <Route path={`/wizard/1`} component={Step1}/>
             <Route path={`/wizard/2`} component={Step2}/>
             <Route path={`/wizard/3`} component={Step3}/>
             <Route path={`/wizard/4`} component={Step4}/>
             <Route path={`/wizard/5`} component={Step5}/>
-          </Switch>
+          </div>
 
             </div>
             <div className="right-blank-space">
