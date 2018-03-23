@@ -3,7 +3,9 @@ import './wizard.css';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import{Link} from 'react-router-dom';
-import {updatePropertyName, updatePropertyDescription} from '../../Redux/Actions/actions'
+import {updatePropertyName, updatePropertyDescription} from '../../Redux/Actions/actions';
+import step_active from '../Images/step_active.png';
+import step_inactive from '../Images/step_inactive.png';
 
 
 class StepOne extends Component {
@@ -27,13 +29,13 @@ class StepOne extends Component {
       return (
 
          <div className='StepOne' >
-                 {/* <div className="progress-bar">
-        <img src='.../Images/step_active.png' alt="active" />
-        <img src='.../Images/step_inactive.png' alt="active" />
-        <img src='.../Images/step_inactive.png' alt="active" />
-        <img src='.../Images/step_inactive.png' alt="active" />
-        <img src='.../Images/step_inactive.png' alt="active" />
-        </div> */}
+          <div className="progress-bar">
+          <img src={step_active}/>
+          <img src={step_inactive}/>
+          <img src={step_inactive}/>
+          <img src={step_inactive}/>
+          <img src={step_inactive}/>
+        </div>
               <p>Property Name</p>
               <input type="text" value={this.props.propertyName} onChange={e => this.handleChange(e, 'name')} className="name-holder" />
               <p>Property Description</p>

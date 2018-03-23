@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const massive = require('massive');
 const session = require('express-session');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -45,14 +46,7 @@ app.get(`/api/properties`, (req, res) => {
         })
 })
 
-app.get(`/api/filter/:desired_rent`, (req, res)=>{
-    req.db.filterProperty(req)
-        .then(properties => {
-            res.status(200).send(properties)
-        })
-})
-
-// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;

@@ -3,7 +3,10 @@ import './wizard.css';
 import{Link} from 'react-router-dom';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-import {updateLoanAmount, updateMonthlyMortgage} from '../../Redux/Actions/actions'
+import {updateLoanAmount, updateMonthlyMortgage} from '../../Redux/Actions/actions';
+import step_active from '../Images/step_active.png';
+import step_inactive from '../Images/step_inactive.png';
+import step_completed from '../Images/step_completed.png';
 
 class StepFour extends Component {
   constructor(){
@@ -23,6 +26,13 @@ class StepFour extends Component {
   render(){
       return (
          <div className='StepFour' >
+          <div className="progress-bar">
+          <img src={step_completed}/>
+          <img src={step_completed}/>
+          <img src={step_completed}/>
+          <img src={step_active}/>
+          <img src={step_inactive}/>
+          </div>
             <p>Loan Amount</p>
             <input type="text" value={this.props.loanAmount} onChange={e => this.handleChange(e, 'loan')} className="nameHolder" />
             <p>Monthly Mortgage</p>

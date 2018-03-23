@@ -3,7 +3,10 @@ import './wizard.css';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import{Link} from 'react-router-dom';
-import {updateAddress, updateCity, updateState, updateZip} from '../../Redux/Actions/actions'
+import {updateAddress, updateCity, updateState, updateZip} from '../../Redux/Actions/actions';
+import step_active from '../Images/step_active.png';
+import step_inactive from '../Images/step_inactive.png';
+import step_completed from '../Images/step_completed.png';
 
 
 class StepTwo extends Component {
@@ -28,6 +31,15 @@ class StepTwo extends Component {
   render(){
       return (
          <div className='StepTwo' >
+          <div className='StepOne' >
+          <div className="progress-bar">
+          <img src={step_completed}/>
+          <img src={step_active}/>
+          <img src={step_inactive}/>
+          <img src={step_inactive}/>
+          <img src={step_inactive}/>
+        </div>
+
          <div className="address-container">
           <p>Address</p>
           <input type="text" value={this.props.address} onChange={e => this.handleChange(e, 'address')} className="addressHolder" />
@@ -46,6 +58,7 @@ class StepTwo extends Component {
           <Link className="next-step-button"to='/wizard/1'>Previous Step</Link>
           <Link className="next-step-button" to='/wizard/3'>Next Step</Link>
           </div>
+         </div>
          </div>
       )
   }

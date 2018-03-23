@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import './dashboard.css';
 import Header from '../Header/header';
 import{Link} from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators} from 'redux';
 import axios from 'axios';
-import deleteButton from '../../Components/Images/delete_icon.png'
+import deleteButton from '../../Components/Images/delete_icon.png';
 
 class Dashboard extends Component {
     constructor(){
@@ -16,7 +14,6 @@ class Dashboard extends Component {
             filterValue: 0,
         }
         this.removeProperty = this.removeProperty.bind(this);
-        this.filterProperties = this.filterProperties.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.resetResults = this.resetResults.bind(this);
     }
@@ -26,17 +23,10 @@ class Dashboard extends Component {
           .delete('/api/remove/' + property_id)
           .then((r) => {
               this.setState={
-                  properties: r.data
-              }
-              });
-          };
-
-    filterProperties(desired_rent){
-        axios.get(`/api/filter/` + desired_rent)
-        .then((response) =>{
-            console.log(response)
-        })
-    }
+                properties: r.data
+            }
+            });
+    };
 
     handleChange(e) {
         const name = e.target.name
@@ -45,22 +35,23 @@ class Dashboard extends Component {
           [name]: value,
         });
       }
-    filerResults(){
+
+    filterResults(){
         const arr = this.state.properties.filter((p)=>{
-            if(p.desired_rent > this.state.filterValue){
+            if(p.desired_rent > this.textInput.value){
                 return p
             }
         })
         this.setState({
             filterProperties: arr
-        })
+        });
     }
 
     resetResults(e){
-        e.preventDefault();
-        this.setState={
-            filterValue: 0
-        }
+        this.textInput.value = '';
+        this.setState({
+            filterProperties: this.state.properties
+        })
     }
 
     componentDidMount(){
@@ -81,15 +72,27 @@ class Dashboard extends Component {
                 if(this.state.filterValue < property.desired_rent)
                 return(
                     <div className="property-list" key={property.property_id}>
+                    <div className="imgBox-container">
+                    <img className="imgBox" src={property.img_url}/>
+                    </div>
+
+                    <div className="nameBox">
                     <p>{property.name}</p>
-                    <img src={property.img_url}/>
-                    <p>{property.description}</p>
-                    <p>{property.desired_rent}</p>
-                    <p>{property.state}</p>
-                    <button onClick={()=>this.removeProperty(property.property_id)}><img src={deleteButton}/></button>
+                    <p className="property-description-text">{property.description}</p>
+                    </div>
+                    <div className="propertyDetailBox">
+                    <p>Desired Rent: ${property.desired_rent}</p>
+                    <p>Monthly Mortgage: ${property.monthly_mortgage}</p>
+                    <p>Address: {property.address}</p>
+                    <p>City: {property.city}</p>
+                    <p>State: {property.state}</p>
+                    <p>Zip: {property.zipcode}</p>
+                    </div>
+                    <div className="deleteButtonBox">
+                    <button className="deleteButton" onClick={()=>this.removeProperty(property.property_id)}><img src={deleteButton}/></button>
+                    </div>
                     </div>
                 );
-
             });
         }
 
@@ -101,14 +104,17 @@ class Dashboard extends Component {
                 <Link className="add-property-link" to='/wizard/1'>Add new property</Link>
              <div className="filter-box">
                 <p>List properties with "desired rent" greater than: $</p>
-            <form>
-            <input name='filterValue' type="text" onChange={this.handleChange} className="input-box" value={this.state.filterValue}/>
-                <button className="filter-button">Filter</button>
-                <button onClick={()=>this.resetResults} className="reset-button">Reset</button>
+
+            <form onSubmit={(e)=>e.preventDefault()}>
+            <input name='filterValue' type="text" ref={(input)=>{this.textInput = input}} className="input-box"/>
+
+                <button onClick={()=>this.filterResults()} className="filter-button">Filter</button>
+                <button onClick={(e)=>this.resetResults(e)} className="reset-button">Reset</button>
+
             </form>
              </div>
              <div className="home-listings">
-             <p>Home Listings</p>
+             <p className="home-listings-text">Home Listings</p>
              {properties}
             </div>
             </div>

@@ -4,7 +4,10 @@ import{Link} from 'react-router-dom';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import {updateDesiredRent, updateMonthlyMortgage} from '../../Redux/Actions/actions'
+import {updateDesiredRent, updateMonthlyMortgage} from '../../Redux/Actions/actions';
+import step_active from '../Images/step_active.png';
+import step_inactive from '../Images/step_inactive.png';
+import step_completed from '../Images/step_completed.png';
 
 
 class StepFive extends Component {
@@ -44,6 +47,15 @@ addProperty(e){
   render(){
       return (
          <div className='StepFive' >
+
+         <div className="progress-bar">
+          <img src={step_completed}/>
+          <img src={step_completed}/>
+          <img src={step_completed}/>
+          <img src={step_completed}/>
+          <img src={step_active}/>
+          </div>
+
          <div className="recommendedRent">
          <p>Recommended Rent</p>
         <p> $ {this.props.recommendedRent} </p>

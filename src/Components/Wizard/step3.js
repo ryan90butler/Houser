@@ -4,6 +4,9 @@ import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import{Link} from 'react-router-dom';
 import {updateImgUrl} from '../../Redux/Actions/actions';
+import step_active from '../Images/step_active.png';
+import step_inactive from '../Images/step_inactive.png';
+import step_completed from '../Images/step_completed.png';
 
 
 class StepThree extends Component {
@@ -19,6 +22,13 @@ class StepThree extends Component {
   render(){
       return (
          <div className='StepThree' >
+         <div className="progress-bar">
+          <img src={step_completed}/>
+          <img src={step_completed}/>
+          <img src={step_active}/>
+          <img src={step_inactive}/>
+          <img src={step_inactive}/>
+          </div>
          <img src={this.props.imgUrl} alt="Property Preview"/>
           <p>Image URL</p>
           <input type="text" value={this.props.imgUrl} onChange={e => this.handleChange(e)} className="imgHolder" />

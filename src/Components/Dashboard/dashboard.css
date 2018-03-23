@@ -50,8 +50,71 @@ input.input-box {
   margin-left: 5px;
 }
 
+button.deleteButton {
+  background:  none;
+}
+
 .property-list {
   display:  flex;
   width: 100%;
   justify-content: space-between;
+  background: #dedede;
+  margin-bottom: 10px;
+  border: 1px black solid;
+  height: 225px;
+}
+
+img.imgBox {
+  height: 100%;
+  width: 100%;
+}
+
+
+.propertyDetailBox {
+  margin-right: -40px;
+}
+
+.propertyDetailBox {
+  margin-right: -40px;
+  font-size: 15px;
+  border-left: 1px black solid;
+  width: 20%;
+  padding: 10px;
+}
+
+.nameBox {
+  font-size: 16px;
+  width: 33%;
+}
+
+p.property-description-text {
+  font-weight: 700;
+}
+
+p.home-listings-text {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.deleteButtonBox {
+  width: 4%;
+}
+.imgBox-container {
+  width: 33%;
+}
+
+button.filter-button {
+  background: #8aea92;
+  height: 35px;
+  font-size: 12px;
+  width: 55px;
+}
+
+button.reset-button {
+  background:  #3b5249;
+  color:  white;
+  height: 35px;
+  width: 55px;
+  font-size:  12px;
+  margin-left: 5px;
 }

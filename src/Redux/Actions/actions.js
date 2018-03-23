@@ -9,7 +9,8 @@ import {
     UPDATE_IMG_URL,
     UPDATE_LOAN_AMOUNT,
     UPDATE_MONTHLY_MORTGAGE,
-    UPDATE_DESIRED_RENT
+    UPDATE_DESIRED_RENT,
+    CLEAR_FIELD
 } from '../Actions/constraints';
 
 export function updatePropertyName(text){
@@ -69,6 +70,13 @@ export function updateMonthlyMortgage(text){
 export function updateDesiredRent(text){
     return {
         type: UPDATE_DESIRED_RENT,
+        payload: text
+    }
+}
+
+export function clearFields(text){
+    return {
+        type: CLEAR_FIELD,
         payload: text
     }
 }

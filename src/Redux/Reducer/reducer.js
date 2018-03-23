@@ -9,7 +9,8 @@ import {
     UPDATE_IMG_URL,
     UPDATE_LOAN_AMOUNT,
     UPDATE_MONTHLY_MORTGAGE,
-    UPDATE_DESIRED_RENT
+    UPDATE_DESIRED_RENT,
+    CLEAR_FIELD
 } from '../Actions/constraints';
 
 function propertyName (state = '', action){
@@ -78,7 +79,13 @@ function recommendedRent (state = '', action){
     }
     return state;
 }
+function clearFields (state = '', action){
+    if(action.type === CLEAR_FIELD){
+        return action.payload
+    }
+    return state;
+}
 
-const rootReducer = combineReducers({propertyName, propertyDescription,address,city,state,zip,imgUrl,loanAmount,monthlyMortgage,desiredRent, recommendedRent});
+const rootReducer = combineReducers({propertyName, propertyDescription,address,city,state,zip,imgUrl,loanAmount,monthlyMortgage,desiredRent, clearFields, recommendedRent});
 
 export default rootReducer;

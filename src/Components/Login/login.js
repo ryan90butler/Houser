@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './login.css'
-import {Link} from 'react-router-dom'
 import axios from 'axios';
 import authLogo from '../Images/auth_logo.png';
 
