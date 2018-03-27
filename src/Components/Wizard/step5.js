@@ -4,7 +4,7 @@ import{Link} from 'react-router-dom';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import {updateDesiredRent, updateMonthlyMortgage} from '../../Redux/Actions/actions';
+import {updateDesiredRent, updateMonthlyMortgage,clearFields} from '../../Redux/Actions/actions';
 import step_active from '../Images/step_active.png';
 import step_inactive from '../Images/step_inactive.png';
 import step_completed from '../Images/step_completed.png';
@@ -37,7 +37,8 @@ addProperty(e){
   })
     .then((response)=>{
       if(response.data.success){
-          this.props.history.push('/dashboard');
+        this.props.history.push('/dashboard');
+        this.props.dispatch(clearFields());
       }else{
           alert("I broke")
       }
@@ -47,26 +48,25 @@ addProperty(e){
   render(){
       return (
          <div className='StepFive' >
-
          <div className="progress-bar">
           <img src={step_completed}/>
           <img src={step_completed}/>
           <img src={step_completed}/>
           <img src={step_completed}/>
           <img src={step_active}/>
-          </div>
+        </div>
 
          <div className="recommendedRent">
-         <p>Recommended Rent</p>
-        <p> $ {this.props.recommendedRent} </p>
+         <p className="recommended-amount">Recommended Rent</p>
+        <p className="recommended-amount"> $ {this.props.recommendedRent} </p>
          </div>
-           <div>
+           <div className='desired-rent-container'>
               <p>Desired Rent</p>
-              <input type="text" value={this.props.desiredRent} onChange={e => this.handleChange(e)} className="nameHolder" />
+              <input type="text" value={this.props.desiredRent} onChange={e => this.handleChange(e)} className="desiredRentHolder" />
             </div>
             <div className="button-container">
           <Link className="next-step-button"to='/wizard/4'>Previous Step</Link>
-          <button className="complete-button" onClick={this.addProperty}>complete</button>
+          <button className="complete-button" onClick={this.addProperty}>Complete</button>
          </div>
          </div>
       )

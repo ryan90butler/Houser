@@ -17,10 +17,16 @@ function propertyName (state = '', action){
     if(action.type === UPDATE_PROPERTY_NAME){
         return action.payload
     }
+    if(action.type === CLEAR_FIELD){
+        return action.payload
+    }
     return state;
 }
 function propertyDescription (state = '', action){
     if(action.type === UPDATE_PROPERTY_DESCRIPTION){
+        return action.payload
+    }
+    if(action.type === CLEAR_FIELD){
         return action.payload
     }
     return state;
@@ -29,10 +35,16 @@ function address (state = '', action){
     if(action.type === UPDATE_ADDRESS){
         return action.payload
     }
+    if(action.type === CLEAR_FIELD){
+        return action.payload
+    }
     return state;
 }
 function city (state = '', action){
     if(action.type === UPDATE_CITY){
+        return action.payload
+    }
+    if(action.type === CLEAR_FIELD){
         return action.payload
     }
     return state;
@@ -41,10 +53,16 @@ function state (state = '', action){
     if(action.type === UPDATE_STATE){
         return action.payload
     }
+    if(action.type === CLEAR_FIELD){
+        return action.payload
+    }
     return state;
 }
-function zip (state = null, action){
+function zip (state = '', action){
     if(action.type === UPDATE_ZIP){
+        return action.payload
+    }
+    if(action.type === CLEAR_FIELD){
         return action.payload
     }
     return state;
@@ -53,22 +71,33 @@ function imgUrl (state = '', action){
     if(action.type === UPDATE_IMG_URL){
         return action.payload
     }
-    return state;
-}
-function loanAmount (state = null, action){
-    if(action.type === UPDATE_LOAN_AMOUNT){
+    if(action.type === CLEAR_FIELD){
         return action.payload
     }
     return state;
 }
-function monthlyMortgage (state = null, action){
-    if(action.type === UPDATE_MONTHLY_MORTGAGE){
-        return action.payload;
+function loanAmount (state = '', action){
+    if(action.type === UPDATE_LOAN_AMOUNT){
+        return action.payload
+    }    if(action.type === CLEAR_FIELD){
+        return action.payload
     }
     return state;
 }
-function desiredRent (state = null, action){
+function monthlyMortgage (state = '', action){
+    if(action.type === UPDATE_MONTHLY_MORTGAGE){
+        return action.payload;
+    }
+    if(action.type === CLEAR_FIELD){
+        return action.payload
+    }
+    return state;
+}
+function desiredRent (state = '', action){
     if(action.type === UPDATE_DESIRED_RENT){
+        return action.payload
+    }
+    if(action.type === CLEAR_FIELD){
         return action.payload
     }
     return state;
@@ -77,15 +106,12 @@ function recommendedRent (state = '', action){
     if(action.type === UPDATE_MONTHLY_MORTGAGE){
         return action.payload * 1.25;
     }
-    return state;
-}
-function clearFields (state = '', action){
     if(action.type === CLEAR_FIELD){
         return action.payload
     }
     return state;
 }
 
-const rootReducer = combineReducers({propertyName, propertyDescription,address,city,state,zip,imgUrl,loanAmount,monthlyMortgage,desiredRent, clearFields, recommendedRent});
+const rootReducer = combineReducers({propertyName, propertyDescription,address,city,state,zip,imgUrl,loanAmount,monthlyMortgage,desiredRent, recommendedRent});
 
 export default rootReducer;

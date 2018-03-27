@@ -20,7 +20,7 @@ class Dashboard extends Component {
 
     removeProperty(property_id) {
         axios
-          .delete('/api/remove/' + property_id)
+          .delete(`/api/remove/`+ property_id)
           .then((r) => {
               this.setState={
                 properties: r.data
@@ -103,18 +103,15 @@ class Dashboard extends Component {
              <div className="dashboard-main-content">
                 <Link className="add-property-link" to='/wizard/1'>Add new property</Link>
              <div className="filter-box">
-                <p>List properties with "desired rent" greater than: $</p>
-
+                <p className="list-property-text">List properties with "desired rent" greater than: $</p>
             <form onSubmit={(e)=>e.preventDefault()}>
             <input name='filterValue' type="text" ref={(input)=>{this.textInput = input}} className="input-box"/>
-
                 <button onClick={()=>this.filterResults()} className="filter-button">Filter</button>
                 <button onClick={(e)=>this.resetResults(e)} className="reset-button">Reset</button>
-
             </form>
              </div>
-             <div className="home-listings">
              <p className="home-listings-text">Home Listings</p>
+             <div className="home-listings">
              {properties}
             </div>
             </div>

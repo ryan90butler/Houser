@@ -118,30 +118,57 @@ a.next-step-button {
   border-radius: 4px;
 }
 
-input.description-holder {
+
+p.recommended-amount {
+  margin-top: 0px;
+}
+
+.recommendedRent {
+  width:  28%;
+  display:  flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction:  row;
+}
+
+textarea.description-holder {
   height: 100px;
   width: 70%;
 }
 .button-container {
-  margin-top: 10px;
+  margin-top: 30px;
   display:  flex;
   justify-content: space-between;
   width: 70%;
 }
 
-input.addressHolder {
+.city-state-container {
   width: 70%;
-}
-input.cityHolder {
-  width: 70%;
-}
-input.stateHolder {
-  width: 70%;
-}
-input.zipHolder {
-  width: 70%;
+  display:  flex;
+  align-items:  center;
+  flex-direction: column;
 }
 
+input.addressHolder {
+  width: 40%;
+}
+input.cityHolder {
+  width: 40%;
+}
+input.stateHolder {
+  width: 40%;
+}
+input.zipHolder {
+  width: 20%;
+}
+
+.zip-container {
+  display:  flex;
+  width: 70%;
+  flex-direction:  column;
+  justify-content:  center;
+  align-items:  center;
+}
 .address-container {
   width: 70%;
   align-items:  center;
@@ -157,4 +184,33 @@ button.complete-button {
   margin-top: 30px;
   border-radius: 4px;
   font-size: 18px;
+}
+
+input.imgHolder {
+  width: 75%;
+}
+
+.progress-bar {
+  display:  flex;
+  margin-top: 15px;
+  justify-content:  space-between;
+  width: 30%;
+  margin-bottom: 35px;
+}
+
+.imgHolder-box {
+  height: 250px;
+  width: 250px;
+  background: gainsboro;
+}
+
+img.img-preview {
+  height: 250px;
+  width: 290px;
+}
+
+.desired-rent-container {
+  display:  flex;
+  flex-direction:  column;
+  align-items:  center;
 }

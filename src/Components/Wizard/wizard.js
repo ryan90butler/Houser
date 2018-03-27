@@ -14,23 +14,23 @@ import {BrowserRouter as Switch, Route} from 'react-router-dom';
 class Wizard extends Component {
   constructor(){
     super();
-    this.clearFields=this.clearFields.bind(this);
+    // this.clearFields=this.clearFields.bind(this);
     }
 
-  clearFields(e){
-    this.props.recommendedRent = '';
-    this.props.propertyName = '';
-    this.props.propertyDescription ='';
-    this.props.address = '';
-    this.props.city = '';
-    this.props.state= '';
-    this.props.zip= null;
-    this.props.imgUrl= '';
-    this.props.loanAmount =null;
-    this.props.monthlyMortgage= null;
-    this.props.desiredRent=null;
-    this.props.recommendedRent='';
-  }
+  // clearFields(){
+  //   this.props.recommendedRent = '';
+  //   this.props.propertyName = '';
+  //   this.props.propertyDescription ='';
+  //   this.props.address = '';
+  //   this.props.city = '';
+  //   this.props.state= '';
+  //   this.props.zip= null;
+  //   this.props.imgUrl= '';
+  //   this.props.loanAmount =null;
+  //   this.props.monthlyMortgage= null;
+  //   this.props.desiredRent=null;
+  //   this.props.recommendedRent='';
+  // }
 
     render(){
         return (
@@ -42,7 +42,8 @@ class Wizard extends Component {
             <div className="middle-render-space">
             <div className="render-header">
           <p className="add-new-listing">Add new listing</p>
-           <Link onClick={(e)=>this.clearFields(e)} className="cancel-button" to='/dashboard'>Cancel</Link>
+           <div onClick={()=>this.props.dispatch(clearFields())} ><Link className="cancel-button" to='/dashboard'>Cancel</Link>
+           </div>
            </div>
 
            <div className="step-counter">Step {this.props.match.params.id}</div>

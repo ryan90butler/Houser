@@ -39,7 +39,7 @@ class StepOne extends Component {
               <p>Property Name</p>
               <input type="text" value={this.props.propertyName} onChange={e => this.handleChange(e, 'name')} className="name-holder" />
               <p>Property Description</p>
-              <input type="text" value={this.props.propertyDescription} onChange={e => this.handleChange(e, 'description')} className="description-holder" />
+              <textarea type="text" value={this.props.propertyDescription} onChange={e => this.handleChange(e, 'description')} className="description-holder" />
               <Link className="next-step-button" to='/wizard/2'>Next Step</Link>
          </div>
       )

@@ -18,7 +18,8 @@ a.add-property-link {
   justify-content: center;
   color: black;
   font-weight:  bold;
-  width: 35%;
+  width: 25%;
+  align-items: center;
   margin-left:  auto;
   margin-right:  auto;
   font-size: 20px;
@@ -51,12 +52,12 @@ input.input-box {
 }
 
 button.deleteButton {
-  background:  none;
+  background: white;
 }
 
 .property-list {
   display:  flex;
-  width: 100%;
+  width: 99%;
   justify-content: space-between;
   background: #dedede;
   margin-bottom: 10px;
@@ -96,8 +97,12 @@ p.home-listings-text {
   font-size: 25px;
 }
 
+p.list-property-text {
+  font-size: 18px;
+}
 .deleteButtonBox {
   width: 4%;
+  margin-top: 10px;
 }
 .imgBox-container {
   width: 33%;
@@ -117,4 +122,8 @@ button.reset-button {
   width: 55px;
   font-size:  12px;
   margin-left: 5px;
+}
+
+.home-listings {
+  overflow: scroll;
 }

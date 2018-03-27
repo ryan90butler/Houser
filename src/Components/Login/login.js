@@ -20,7 +20,7 @@ class Login extends Component {
                 if(response.data.success){
                     this.props.history.push('/dashboard');
                 }else{
-                    alert("Yo your password or maybe your email (all though I doubt it) is incorrect")
+                    alert("The password or your email is incorrect")
                 }
             })
             .catch((err)=>{

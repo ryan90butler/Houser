@@ -29,7 +29,9 @@ class StepThree extends Component {
           <img src={step_inactive}/>
           <img src={step_inactive}/>
           </div>
-         <img src={this.props.imgUrl} alt="Property Preview"/>
+          <div className="imgHolder-box">
+         <img src={this.props.imgUrl} className="img-preview" alt="Property Preview"/>
+         </div>
           <p>Image URL</p>
           <input type="text" value={this.props.imgUrl} onChange={e => this.handleChange(e)} className="imgHolder" />
           <div className="button-container">

@@ -83,7 +83,7 @@ app.post('/api/addProperty', (req, res) => {
 
     const { propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent } = req.body;
 
-    req.db.insertProperty({  propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent, user_id:req.session.user
+    req.db.insertProperty({ propertyName, propertyDescription, state, zip, address, city, imgUrl, loanAmount, monthlyMortgage, desiredRent, user_id:req.session.user
     })
         .then(user => {
             res.send({ success: true, message: 'property added' });
@@ -118,8 +118,8 @@ function checkDb() {
       else {
           res.status(500).send({ message: 'this died' });
       }
-  };
-}
+  }
+  ;}
 
 const port = process.env.PORT || 8000
 app.listen( port , () => { console.log(`Server listening on port ${port}`); } );
