@@ -77,10 +77,11 @@ img.imgBox {
 
 .propertyDetailBox {
   margin-right: -40px;
-  font-size: 15px;
+  font-size: 13px;
   border-left: 1px black solid;
   width: 20%;
   padding: 10px;
+  margin-top: -10px;
 }
 
 .nameBox {
