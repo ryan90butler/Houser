@@ -19,12 +19,16 @@ class Dashboard extends Component {
     }
 
     removeProperty(property_id) {
+
         axios
           .delete(`/api/remove/`+ property_id)
           .then((r) => {
-              this.setState={
-                properties: r.data
-            }
+              console.log(r.data)
+              this.setState({
+                properties: r.data,
+                filterProperties: r.data
+            })
+
             });
     };
 
@@ -57,6 +61,7 @@ class Dashboard extends Component {
     componentDidMount(){
         axios.get('/api/properties')
         .then((response)=>{
+            console.log(response)
             this.setState({
                 properties: response.data,
                 filterProperties:response.data
@@ -66,6 +71,10 @@ class Dashboard extends Component {
 
     render(){
         let properties;
+        console.log(this.state.properties)
+        if(!this.state.properties){
+            return <div>loading</div>
+        }
         if(this.state.properties.length > 0){
              properties = this.state.filterProperties
             .map(property => {
@@ -95,6 +104,7 @@ class Dashboard extends Component {
                 );
             });
         }
+
 
         return (
 

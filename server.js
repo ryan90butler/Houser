@@ -97,13 +97,14 @@ app.post('/api/addProperty', (req, res) => {
     req.db.deleteProperty({ property_id: req.params.id})
         .then(newProperties =>{
             console.log('successfully removed')
-            return req.db.findProperties(req)
+            return req.db.findProperties(req.session.user)
         })
         .then(properties => {
             res.send(properties)
         })
         .catch(err =>{
             console.log(err)
+            res.status(500).send(err)
           });
   })
 

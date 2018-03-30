@@ -77,6 +77,6 @@ export function updateDesiredRent(text){
 export function clearFields(text){
     return {
         type: CLEAR_FIELD,
-        payload: text
+        payload: ''
     }
 }
