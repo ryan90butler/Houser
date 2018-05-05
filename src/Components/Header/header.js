@@ -24,7 +24,7 @@ class Header extends Component {
         return (
            <div className='header' >
            <div className='header-title'>
-           <img className='header-logo' src={headerLogo} />
+           <img className='header-logo' alt="progress-pic"src={headerLogo} />
             <p className='header-text'>Houser</p>
             <p className='header-text'>Dashboard</p>
             </div>

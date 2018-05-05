@@ -9,28 +9,9 @@ import Step3 from './step3';
 import Step4 from './step4';
 import Step5 from './step5';
 import {clearFields} from '../../Redux/Actions/actions'
-import {BrowserRouter as Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Route} from 'react-router-dom';
 
 class Wizard extends Component {
-  constructor(){
-    super();
-    // this.clearFields=this.clearFields.bind(this);
-    }
-
-  // clearFields(){
-  //   this.props.recommendedRent = '';
-  //   this.props.propertyName = '';
-  //   this.props.propertyDescription ='';
-  //   this.props.address = '';
-  //   this.props.city = '';
-  //   this.props.state= '';
-  //   this.props.zip= null;
-  //   this.props.imgUrl= '';
-  //   this.props.loanAmount =null;
-  //   this.props.monthlyMortgage= null;
-  //   this.props.desiredRent=null;
-  //   this.props.recommendedRent='';
-  // }
 
     render(){
         return (

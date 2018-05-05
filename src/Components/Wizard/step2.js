@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './wizard.css';
-import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import{Link} from 'react-router-dom';
 import {updateAddress, updateCity, updateState, updateZip} from '../../Redux/Actions/actions';
@@ -25,6 +24,8 @@ class StepTwo extends Component {
         break;
         case 'zip':  this.props.dispatch(updateZip(e.target.value));
         break;
+        default:
+        return
     }
 }
 
@@ -33,11 +34,11 @@ class StepTwo extends Component {
          <div className='StepTwo' >
           <div className='StepOne' >
           <div className="progress-bar">
-          <img src={step_completed}/>
-          <img src={step_active}/>
-          <img src={step_inactive}/>
-          <img src={step_inactive}/>
-          <img src={step_inactive}/>
+          <img alt="progress-pic"src={step_completed}/>
+          <img alt="progress-pic"src={step_active}/>
+          <img alt="progress-pic"src={step_inactive}/>
+          <img alt="progress-pic"src={step_inactive}/>
+          <img alt="progress-pic"src={step_inactive}/>
         </div>
 
          <div className="address-container">

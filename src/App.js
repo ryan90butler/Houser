@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators} from 'redux';
 import Login from  './Components/Login/login';
 import Dashboard from './Components/Dashboard/dashboard';
 import Wizard from './Components/Wizard/wizard';

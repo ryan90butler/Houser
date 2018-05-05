@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {
     UPDATE_PROPERTY_NAME,
     UPDATE_PROPERTY_DESCRIPTION,

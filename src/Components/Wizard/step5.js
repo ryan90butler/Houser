@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './wizard.css';
 import{Link} from 'react-router-dom';
-import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import {updateDesiredRent, updateMonthlyMortgage,clearFields} from '../../Redux/Actions/actions';
+import {updateDesiredRent,clearFields} from '../../Redux/Actions/actions';
 import step_active from '../Images/step_active.png';
-import step_inactive from '../Images/step_inactive.png';
 import step_completed from '../Images/step_completed.png';
 
 
@@ -49,11 +47,11 @@ addProperty(e){
       return (
          <div className='StepFive' >
          <div className="progress-bar">
-          <img src={step_completed}/>
-          <img src={step_completed}/>
-          <img src={step_completed}/>
-          <img src={step_completed}/>
-          <img src={step_active}/>
+          <img alt="progress-pic"src={step_completed}/>
+          <img alt="progress-pic"src={step_completed}/>
+          <img alt="progress-pic"src={step_completed}/>
+          <img alt="progress-pic"src={step_completed}/>
+          <img alt="progress-pic"src={step_active}/>
         </div>
 
          <div className="recommendedRent">

@@ -82,7 +82,7 @@ class Dashboard extends Component {
                 return(
                     <div className="property-list" key={property.property_id}>
                     <div className="imgBox-container">
-                    <img className="imgBox" src={property.img_url}/>
+                    <img className="imgBox" alt="progress-pic" src={property.img_url}/>
                     </div>
 
                     <div className="nameBox">
@@ -98,7 +98,7 @@ class Dashboard extends Component {
                     <p>Zip: {property.zipcode}</p>
                     </div>
                     <div className="deleteButtonBox">
-                    <button className="deleteButton" onClick={()=>this.removeProperty(property.property_id)}><img src={deleteButton}/></button>
+                    <button className="deleteButton" onClick={()=>this.removeProperty(property.property_id)}><img alt="progress-pic"src={deleteButton}/></button>
                     </div>
                     </div>
                 );

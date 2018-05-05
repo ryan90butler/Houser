@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './wizard.css';
-import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import{Link} from 'react-router-dom';
 import {updateImgUrl} from '../../Redux/Actions/actions';
@@ -23,11 +22,11 @@ class StepThree extends Component {
       return (
          <div className='StepThree' >
          <div className="progress-bar">
-          <img src={step_completed}/>
-          <img src={step_completed}/>
-          <img src={step_active}/>
-          <img src={step_inactive}/>
-          <img src={step_inactive}/>
+          <img alt="progress-pic"src={step_completed}/>
+          <img alt="progress-pic"src={step_completed}/>
+          <img alt="progress-pic"src={step_active}/>
+          <img alt="progress-pic"src={step_inactive}/>
+          <img alt="progress-pic"src={step_inactive}/>
           </div>
           <div className="imgHolder-box">
          <img src={this.props.imgUrl} className="img-preview" alt="Property Preview"/>
