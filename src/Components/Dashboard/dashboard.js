@@ -19,7 +19,6 @@ class Dashboard extends Component {
     }
 
     removeProperty(property_id) {
-
         axios
           .delete(`/api/remove/`+ property_id)
           .then((r) => {
@@ -28,8 +27,7 @@ class Dashboard extends Component {
                 properties: r.data,
                 filterProperties: r.data
             })
-
-            });
+        });
     };
 
     handleChange(e) {
@@ -84,7 +82,6 @@ class Dashboard extends Component {
                     <div className="imgBox-container">
                     <img className="imgBox" alt="progress-pic" src={property.img_url}/>
                     </div>
-
                     <div className="nameBox">
                     <p>{property.name}</p>
                     <p className="property-description-text">{property.description}</p>
@@ -104,8 +101,6 @@ class Dashboard extends Component {
                 );
             });
         }
-
-
         return (
 
            <div className='Dashboard' >
